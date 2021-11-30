@@ -1,17 +1,20 @@
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) {
         List<Desenho> desenhos = Desenhos.lista();
 
-        Filtro<Desenho> filtro = new Filtro<>();
+        // stream
+        List<Desenho> desenhosAntesDe60 = desenhos.stream()
+                .filter(desenho -> desenho.getDecadaDeCriacao() <= 1960)
+                .toList();
 
-        // lambda
-        List<Desenho> desenhosAntesDe60 = filtro.filtra(desenhos, desenho -> desenho.getDecadaDeCriacao() <= 1960);
-
-        // lambda
-        List<Desenho> desenhosIniciadosComS = filtro.filtra(desenhos, desenho -> desenho.getNome().startsWith("S"));
+        // stream
+        List<Desenho> desenhosIniciadosComS = desenhos.stream()
+                .filter(desenho -> desenho.getNome().startsWith("S"))
+                .toList();
 
         for (Desenho desenho : desenhosAntesDe60) {
             System.out.println(desenho);
