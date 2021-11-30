@@ -8,14 +8,10 @@ public class Main {
         FiltrosDeDesenhos filtro = new FiltrosDeDesenhos();
 
         // lambda
-        List<Desenho> desenhosAntesDe60 = filtro.filtra(desenhos, desenho -> {
-                return desenho.getDecadaDeCriacao() <= 1960;
-        });
+        List<Desenho> desenhosAntesDe60 = filtro.filtra(desenhos, desenho -> desenho.getDecadaDeCriacao() <= 1960);
 
         // lambda
-        List<Desenho> desenhosIniciadosComS = filtro.filtra(desenhos, desenho -> {
-                return desenho.getNome().startsWith("S");
-        });
+        List<Desenho> desenhosIniciadosComS = filtro.filtra(desenhos, desenho -> desenho.getNome().startsWith("S"));
 
         for (Desenho desenho : desenhosAntesDe60) {
             System.out.println(desenho);
