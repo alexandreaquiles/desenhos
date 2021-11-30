@@ -7,23 +7,17 @@ public class Main {
 
         FiltrosDeDesenhos filtro = new FiltrosDeDesenhos();
 
-        // classe anônima Main$1.class
-        List<Desenho> desenhosAntesDe60 = filtro.filtra(desenhos, new CriterioDeComparacaoDeDesenhos() {
-            @Override
-            public boolean atende(Desenho desenho) {
+        // lambda
+        List<Desenho> desenhosAntesDe60 = filtro.filtra(desenhos, (Desenho desenho) -> {
                 return desenho.getDecadaDeCriacao() <= 1960;
-            }
         });
 
-        // classe anônima Main$2.class
-        List<Desenho> desenhosIniciadosComS = filtro.filtra(desenhos, new CriterioDeComparacaoDeDesenhos() {
-            @Override
-            public boolean atende(Desenho desenho) {
+        // lambda
+        List<Desenho> desenhosIniciadosComS = filtro.filtra(desenhos, (Desenho desenho) -> {
                 return desenho.getNome().startsWith("S");
-            }
         });
 
-        for (Desenho desenho : desenhosIniciadosComS) {
+        for (Desenho desenho : desenhosAntesDe60) {
             System.out.println(desenho);
         }
 
