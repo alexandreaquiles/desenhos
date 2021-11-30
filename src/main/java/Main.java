@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         List<Desenho> desenhos = Desenhos.lista();
 
-        FiltrosDeDesenhos filtro = new FiltrosDeDesenhos();
+        Filtro<Desenho> filtro = new Filtro<>();
 
         // lambda
         List<Desenho> desenhosAntesDe60 = filtro.filtra(desenhos, desenho -> desenho.getDecadaDeCriacao() <= 1960);
